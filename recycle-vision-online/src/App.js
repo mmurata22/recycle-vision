@@ -6,6 +6,10 @@ function App() {
   const [scanResult, setScanResult] = useState(null);
 
   const handleScanResult = (result) => {
+    // --- ADD THIS CONSOLE.LOG ---
+    console.log('Result received in App.js:', result); 
+    // --- END CONSOLE.LOG ---
+
     setScanResult(result);
   };
 
@@ -16,10 +20,8 @@ function App() {
       </header>
 
       <main>
-        {/* The BarcodeScanner component, which contains the file input */}
         <BarcodeScanner onResult={handleScanResult} />
 
-        {/* Display results */}
         {scanResult && (
           <div className="results">
             {scanResult.success ? (
@@ -31,7 +33,7 @@ function App() {
                   <strong>Recyclable:</strong> {scanResult.recyclable ? 'Yes' : 'No'}
                 </p>
                 <p>
-                  <strong>Instructions:</strong> {scanResult.recycling_instructions}
+                  <strong>Recycling Guide:</strong> {scanResult.custom_instructions}
                 </p>
               </>
             ) : (
