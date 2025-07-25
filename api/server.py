@@ -48,5 +48,5 @@ def scan_barcode():
         print(f"An error occurred: {e}", file=sys.stderr)
         return jsonify({"success": False, "error": f"Internal server error: {e}"}), 500
 
-if __name__ == '__main__':
-    app.run(port=5000, debug=True)
+# if __name__ == '__main__':
+#     app.run(port=5000, debug=True)
