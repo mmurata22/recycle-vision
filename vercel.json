@@ -25,6 +25,5 @@
 
   "installCommand": "npm install --prefix recycle-vision-online && pip install -r api/requirements.txt",
   "buildCommand": "npm run build --prefix recycle-vision-online",
-  "ignoreBuildStep": false,
   "outputDirectory": "recycle-vision-online/build"
 }
