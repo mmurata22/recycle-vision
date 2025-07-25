@@ -8,11 +8,10 @@
     {
       "src": "recycle-vision-online/package.json",
       "use": "@vercel/static-build",
-      "config": {
-        "outputDirectory": "build"
-      }
+      "config": { "outputDirectory": "build" }
     }
   ],
+
   "routes": [
     {
       "src": "/api/(.*)",
@@ -23,7 +22,9 @@
       "dest": "recycle-vision-online/build/index.html"
     }
   ],
+
   "installCommand": "npm install --prefix recycle-vision-online && pip install -r api/requirements.txt",
   "buildCommand": "npm run build --prefix recycle-vision-online",
+  "ignoreBuildStep": false,
   "outputDirectory": "recycle-vision-online/build"
 }
