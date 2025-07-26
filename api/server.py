@@ -39,7 +39,7 @@ def scan_barcode():
                 "packaging": product_info.get('packaging'),
                 "recyclable": product_info.get('recyclable'),
                 "custom_instructions": product_info.get('custom_instructions'),
-                "recycling_instructions": product_info.get('recycling_instructions') # Added back for completeness
+                "recycling_instructions": product_info.get('recycling_instructions')
             })
         else:
             return jsonify({"success": False, "error": "Product not found"}), 404
@@ -48,5 +48,5 @@ def scan_barcode():
         print(f"An error occurred: {e}", file=sys.stderr)
         return jsonify({"success": False, "error": f"Internal server error: {e}"}), 500
 
-#if __name__ == '__main__':
-#    app.run(port=5000, debug=True)
+if __name__ == '__main__' and os.getenv("FLASK_ENV") != 'production':
+    app.run(port=5000, debug=True)
