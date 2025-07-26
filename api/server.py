@@ -10,7 +10,7 @@ from product_finder import get_product_packaging_info
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/scan_barcode', methods=['POST'])
+@app.route('/api/scan_barcode', methods=['POST'])
 def scan_barcode():
     if 'image' not in request.files:
         return jsonify({"success": False, "error": "No image file provided"}), 400
@@ -29,7 +29,7 @@ def scan_barcode():
             return jsonify({"success": False, "error": "No barcode found in image"}), 404
 
         barcode = barcodes[0]
-        
+
         product_info = get_product_packaging_info(barcode)
 
         if product_info:
