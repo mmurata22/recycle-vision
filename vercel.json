@@ -1,25 +1,12 @@
 {
-  "builds": [
+  "rewrites": [
     {
-      "src": "api/wsgi.py",
-      "use": "@vercel/python"
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
     },
     {
-      "src": "recycle-vision-online/package.json",
-      "use": "@vercel/static-build",
-      "config": { "outputDirectory": "build" }
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "api/wsgi.py"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "recycle-vision-online/build/index.html"
-    }
-  ],
-  "installCommand": "npm install --prefix recycle-vision-online && pip install -r api/requirements.txt",
-  "buildCommand": "npm run build --prefix recycle-vision-online"
+  ]
 }
